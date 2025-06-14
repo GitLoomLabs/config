@@ -1,0 +1,23 @@
+{
+  "name": "@gitloom/config",
+  "version": "1.0.0",
+  "description": "Utilities for reading and parsing GitLoom's config.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitLoomLabs/config.git"
+  },
+  "files": [
+    "schema.json"
+  ],
+  "scripts": {
+    "release": "changeset publish",
+    "version": "changeset version"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.4"
+  }
+}

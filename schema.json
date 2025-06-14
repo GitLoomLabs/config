@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://cdn.jsdelivr.net/npm/@gitloom/config/schema.json",
+  "title": "GitLoom Configuration Schema",
+  "description": "Defines the structure for .gitloom/config.json files",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Reference to this JSON schema for editor support"
+    },
+    "__v": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0"],
+      "description": "Configuration version (semver)"
+    },
+    "contentTypes": {
+      "type": "object",
+      "description": "Content type definitions",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^[^\\\\]*$",
+            "description": "Relative path for this content type (forward slashes only)"
+          },
+          "extension": {
+            "type": "string",
+            "pattern": "^\\..+$",
+            "default": ".md",
+            "examples": [".md", ".mdx"],
+            "description": "File extension (must include dot)"
+          }
+        },
+        "required": ["path"],
+        "additionalProperties": false
+      },
+      "minProperties": 1,
+      "errorMessage": {
+        "minProperties": "At least one content type must be defined"
+      }
+    }
+  },
+  "required": ["__v", "contentTypes"],
+  "examples": [
+    {
+      "$schema": "./gitloom-config-schema.json",
+      "__v": "1.0.0",
+      "contentTypes": {
+        "posts": {
+          "path": "content/posts",
+          "extension": ".md"
+        }
+      }
+    }
+  ]
+}

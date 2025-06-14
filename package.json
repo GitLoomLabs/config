@@ -11,7 +11,7 @@
     "schema.json"
   ],
   "scripts": {
-    "release": "changeset publish",
+    "publish": "changeset publish",
     "version": "changeset version"
   },
   "publishConfig": {

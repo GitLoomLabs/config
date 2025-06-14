@@ -1,6 +1,6 @@
 {
   "name": "@gitloom/config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for reading and parsing GitLoom's config.",
   "license": "MIT",
   "repository": {
